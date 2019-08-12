@@ -9,8 +9,7 @@ html
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   body
   header
-    .app-title.navbar.navbar-expand-md.navbar-light.bg-light
-    navbar-brand  寿司さがし
+    | 寿司さがし
     nav
       -if user_signed_in?
           = link_to current_user.name, @user
