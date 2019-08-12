@@ -1,6 +1,5 @@
 h2
-  | Edit
-  = resource_name.to_s.humanize
+  | プロフィール変更
 = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
   = render "devise/shared/error_messages", resource: resource
   .field
@@ -18,14 +17,14 @@ h2
   .field
     = f.label :password
     i
-      | (leave blank if you don't want to change it)
+      | (パスワード変更しない場合は空欄)
     br
     = f.password_field :password, autocomplete: "new-password"
     - if @minimum_password_length
       br
       em
         = @minimum_password_length
-        |  characters minimum
+        |  文字以上でお願いします
   .field
     = f.label :password_confirmation
     br
@@ -33,13 +32,13 @@ h2
   .field
     = f.label :current_password
     i
-      | (we need your current password to confirm your changes)
+      | (使用していたパスワード)
     br
     = f.password_field :current_password, autocomplete: "current-password"
   .actions
-    = f.submit "Update"
+    = f.submit "更新"
 
 h5
   | 退会はこちら
   = button_to "サービスを退会する", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete
-= link_to "Back", :back
+= link_to "戻る", :back
