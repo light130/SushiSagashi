@@ -3,23 +3,29 @@ html
   head
     title
       | 寿司さがし
-    = csrf_meta_tags
-    = csp_meta_tag
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
-    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    = render 'layouts/rails_default'
   body
-  header
-    | 寿司さがし
-    nav
-      -if user_signed_in?
-          = link_to current_user.name, @user
-          = link_to "プロフィール変更", edit_user_registration_path
-          = link_to "ログアウト", destroy_user_session_path, method: :delete
-      -else
-          = link_to "ユーザー登録", new_user_registration_path
-          = link_to "ログイン", new_user_session_path
+   header.navbar.bg-primary
+     | 寿司さがし
+     .dropdown
+      button#dropdown1.btn.btn-light.dropdown-toggle[type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"]
+        | アカウント
+      .dropdown-menu.dropdown-menu-right[aria-labelledby="dropdown1"]
+        - if user_signed_in?
+          = link_to @user, class: "dropdown-item" do
+            = current_user.name
+          = link_to edit_user_registration_path, class: "dropdown-item" do
+            | "プロフィール変更"
+          .dropdown-divider
+          = link_to destroy_user_session_path, method: :delete, class: "dropdown-item" do
+            | "ログアウト"
+        - else
+          = link_to new_user_registration_path, class: "dropdown-item" do
+            | "ユーザー登録"
+          = link_to new_user_session_path, class: "dropdown-item" do
+            | "ログイン"
 
-  .container
-    p.notice = notice
-    p.alert = alert
-    = yield
+   .container
+     p.notice = notice
+     p.alert = alert
+     = yield
