@@ -1,0 +1,29 @@
+h2
+  | 店舗登録
+= form_with model: @shop, local: true do |f|
+  .field
+    = f.label :name
+    br
+    = f.text_field :name, autofocus: true
+  .field
+    = f.label :address
+    |&nbsp; 例: 東京都〇〇区〇〇
+    br
+    = f.text_field :address
+  .field
+    = f.label :budget
+    |&nbsp; 例: 1000円~2000円
+    br
+    = f.text_field :budget
+  .field
+    = f.label :opening_hours
+    |&nbsp; 例: 午前12時~午後9時
+    br
+    = f.text_field :opening_hours
+  .picture
+    f.label :picture
+    = f.file_field :picture, accept: 'image/jpeg, image/gif, image/png'
+    br
+    br
+  .actions
+    = f.submit "登録"
