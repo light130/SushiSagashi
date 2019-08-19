@@ -3,10 +3,11 @@ class ShopsController < ApplicationController
   before_action :correct_user, only: [:destroy]
 
   def new
+    @shop = current_user.shops.build
   end
 
   def create
-    @shop = current_user.shops.build
+    @shop = current_user.shops.build(shop_params)
     if @shop.save
       redirect_to root_url
     else
@@ -19,9 +20,15 @@ class ShopsController < ApplicationController
     redirect_back(fallback_location: root_url)
   end
 
+  private
+
   def correct_user
     @shop = current_user.shops.find_by(id: params[:id])
     redirect_to root_url if @shop.nil?
-  end
+   end
+
+   def shop_params
+     params.require(:shop).permit(:name, :address, :budget, :opening_hours, :picture)
+   end
 
 end

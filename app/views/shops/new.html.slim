@@ -1,6 +1,6 @@
 h2
   | 店舗登録
-= form_with model: @shop, local: true do |f|
+= form_with model: @shop, url: shops_path, local: true do |f|
   .field
     = f.label :name
     br
@@ -27,3 +27,12 @@ h2
     br
   .actions
     = f.submit "登録"
+
+javascript:
+  type = "text/javascript"
+  $('#shop_picture').blind('change', function(){
+    var size_in_megabytes = this.files[0].size/1024/1024;
+    if (size_in_megabytes > 5) {
+      alert('Maximum file size is 5MB. Please choose a smaller file.');
+    }
+  });

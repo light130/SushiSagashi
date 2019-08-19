@@ -1,2 +1,4 @@
 h1 ようこそ!
-p トップページ
+- if Shop.any?
+  ul.shops
+    = render @shops

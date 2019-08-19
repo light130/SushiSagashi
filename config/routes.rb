@@ -5,6 +5,6 @@ Rails.application.routes.draw do
   end
   root to: 'home#index'
   resources :users, only: [:show]
-  resources :shops, only: [:new]
+  resources :shops
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
