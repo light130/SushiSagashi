@@ -1,5 +1,5 @@
 li#shop
-  = shop.name
+  = link_to shop.name, shop
   .content
     = image_tag shop.picture.url if shop.picture?
     br
