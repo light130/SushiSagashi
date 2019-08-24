@@ -1,0 +1,11 @@
+li#shop
+  = @shop.name
+  .content
+    = image_tag @shop.picture.url if @shop.picture?
+    br
+    = @shop.address
+    br
+    = @shop.budget
+    br
+    = @shop.opening_hours
+= link_to "削除", @shop, method: :delete, data: { confirm: "本当に削除しますか?" }
