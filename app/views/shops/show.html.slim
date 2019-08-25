@@ -8,4 +8,6 @@ li#shop
     = @shop.budget
     br
     = @shop.opening_hours
-= link_to "削除", @shop, method: :delete, data: { confirm: "本当に削除しますか?" }
+  - if current_user.admin?
+   = link_to "編集", edit_shop_path
+   = link_to "削除", @shop, method: :delete, data: { confirm: "本当に削除しますか?" }
