@@ -1,5 +1,5 @@
 class ShopsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :edit, :create, :update, :destroy]
+  before_action :authenticate_user!
   before_action :admin_user, only: [:new, :edit, :create, :update, :destroy]
 
   def new

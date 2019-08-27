@@ -8,6 +8,9 @@ li#shop
     = @shop.budget
     br
     = @shop.opening_hours
+    br
+    = render 'likes/like', shop:@shop
+    br
   - if current_user.admin?
    = link_to "編集", edit_shop_path
    = link_to "削除", @shop, method: :delete, data: { confirm: "本当に削除しますか?" }

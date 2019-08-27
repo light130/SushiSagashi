@@ -1,0 +1,12 @@
+- if current_user.like?(shop)
+  = form_with model: shop, url: like_path(shop), method: :delete, remote: true do |f|
+    = hidden_field_tag :shop_id, shop.id
+    = button_tag type: 'submit' do
+      i.fa.fa-heart
+    = shop.liked_users.count
+- else
+  = form_with model: shop, url: likes_path, method: :post, remote: true do |f|
+    = hidden_field_tag :shop_id, shop.id
+    = button_tag type: 'submit' do
+      i.far.fa-heart
+    = shop.liked_users.count

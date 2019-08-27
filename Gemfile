@@ -77,4 +77,6 @@ gem 'devise-i18n-views'
 
 gem 'carrierwave', '~> 2.0'
 gem 'mini_magick'
-gem 'fog'
+gem 'fog-aws'
+
+gem 'font-awesome-sass', '~> 5.9.0'
