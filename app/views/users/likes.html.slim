@@ -1,0 +1,10 @@
+- @shops.each do |shop|
+  = link_to shop.name, shop
+  .content
+    = image_tag shop.picture.url if shop.picture?
+    br
+    = shop.address
+    br
+    = shop.budget
+    br
+    = shop.opening_hours
