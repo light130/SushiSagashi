@@ -1,0 +1,3 @@
+= form_with model: [@shop, @comment], url: shop_comments_path(@shop) do |f|
+  = f.text_area :content
+  = f.submit "投稿"

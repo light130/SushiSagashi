@@ -6,6 +6,7 @@ class User < ApplicationRecord
   validates :name, presence: true
   has_many :likes, dependent: :destroy
   has_many :liked_shops, through: :likes, source: :shop
+  has_many :comments
 
   def like(shop)
     likes.create(shop_id: shop.id)
