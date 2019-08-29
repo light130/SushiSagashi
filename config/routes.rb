@@ -9,7 +9,9 @@ Rails.application.routes.draw do
       get :likes
     end
   end
-  resources :shops
+  resources :shops do
+    resources :comments, only: [:create, :edit, :update, :index, :destroy]
+  end
   resources :likes, only: [:create, :destroy]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
