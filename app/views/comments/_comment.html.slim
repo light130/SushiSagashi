@@ -1,1 +1,3 @@
-= comment.content
+.circle-avatar
+  = image_tag comment.user.avatar.url if comment.user.avatar?
+  = comment.content

@@ -29,6 +29,10 @@ h2
     = f.label :password_confirmation
     br
     = f.password_field :password_confirmation, autocomplete: "new-password"
+  .picture
+    = f.label :avatar, "アイコン"
+    br
+    = f.file_field :avatar, accept: 'image/jpeg, image/gif, image/png'
   .field
     = f.label :current_password
     i
@@ -38,7 +42,9 @@ h2
   .actions
     = f.submit "更新"
 
+
 h5
+  br
   | 退会はこちら
   = button_to "サービスを退会する", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete
 = link_to "戻る", :back
