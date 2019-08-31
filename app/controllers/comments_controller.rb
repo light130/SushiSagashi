@@ -13,16 +13,19 @@ class CommentsController < ApplicationController
     end
   end
 
-  def edit
-  end
-
-  def update
-  end
-
   def index
   end
 
   def destroy
+    shop = Shop.find(params[:shop_id])
+    comment = shop.comments.find(params[:id])
+    if comment.destroy
+      flash[:notice] = "コメントを削除しました。"
+      redirect_back(fallback_location: shop_url(shop))
+    else
+      flash[:alert] = "コメントを削除できませんでした。"
+      redirect_back(fallback_location: shop_url(shop))
+    end
   end
 
   private

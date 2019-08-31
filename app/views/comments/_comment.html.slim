@@ -1,3 +1,5 @@
 .circle-avatar
   = image_tag comment.user.avatar.url if comment.user.avatar?
   = comment.content
+  - if comment.user == current_user
+    = link_to "削除", shop_comment_path(shop_id: @shop, id: comment.id), method: :delete
