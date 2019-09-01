@@ -1,0 +1,30 @@
+header.navbar.navbar-expand-md.navbar-dark.bg-primary
+ .container-fluid
+  = link_to root_path, class: "text-primary bg-white" do
+   | 寿司さがし
+  nav
+   ul.nav.navbar-nav.mr-auto
+    li.nav-item.active.nav-link.navbar-dark
+     - if user_signed_in?
+      = link_to likes_user_path(current_user), class: "text-body" do
+       | お気に入り
+     - if user_signed_in? && current_user.admin?
+      = link_to new_shop_path, class: "text-dark" do
+       | 店舗登録
+    .dropdown
+     button#dropdown1.btn.btn-light.dropdown-toggle[type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"]
+       | アカウント
+     .dropdown-menu.dropdown-menu-right[aria-labelledby="dropdown1"]
+       - if user_signed_in?
+         = link_to current_user, class: "dropdown-item" do
+           = current_user.name
+         = link_to edit_user_registration_path, class: "dropdown-item" do
+           | プロフィール変更
+         .dropdown-divider
+         = link_to destroy_user_session_path, method: :delete, class: "dropdown-item" do
+           | ログアウト
+       - else
+         = link_to new_user_registration_path, class: "dropdown-item" do
+           | ユーザー登録
+         = link_to new_user_session_path, class: "dropdown-item" do
+           | ログイン

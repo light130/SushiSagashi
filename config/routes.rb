@@ -4,6 +4,8 @@ Rails.application.routes.draw do
     post 'users/sign_up/confirmation' => 'users/registrations#confirmation'
   end
   root to: 'home#index'
+  get '/about', to: 'home#about'
+  get '/contact', to: 'home#contact'
   resources :users, only: [:show] do
     member do
       get :likes
