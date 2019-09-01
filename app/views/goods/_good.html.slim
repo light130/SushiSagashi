@@ -1,0 +1,12 @@
+- if current_user.good?(comment)
+  = form_with model: comment, url: shop_comment_good_path(shop_id: comment.shop_id, comment_id: comment.id), method: :delete do |f|
+    = hidden_field_tag :comment_id, comment.id
+    = button_tag type: 'submit' do
+      i.fas.fa-thumbs-up
+    = comment.user_goods.count
+- else
+  = form_with model: comment, url: shop_comment_goods_path(shop_id: comment.shop_id, comment_id: comment.id), method: :post do |f|
+    = hidden_field_tag :comment_id, comment.id
+    = button_tag type: 'submit' do
+      i.far.fa-thumbs-up
+    = comment.user_goods.count

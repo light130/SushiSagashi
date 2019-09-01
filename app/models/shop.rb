@@ -7,7 +7,6 @@ class Shop < ApplicationRecord
   has_many :liked_users, through: :likes, source: :user
   has_many :comments, dependent: :destroy
 
-
   private
 
     def picture_size
