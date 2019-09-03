@@ -3,14 +3,18 @@ li#shop
   .content
     = image_tag @shop.picture.url if @shop.picture?
     br
+    | 住所：
     = @shop.address
     br
+    | 予算：
     = @shop.budget
     br
+    | 営業時間：
     = @shop.opening_hours
     br
     = render 'likes/like', shop:@shop
     br
+    | コメント
     = render @comments
     br
     = render 'comments/form'

@@ -2,21 +2,21 @@ h2
   | 店舗登録
 = form_with model: @shop, url: shops_path, local: true do |f|
   .field
-    = f.label :name
+    = f.label :name, "店名"
     br
     = f.text_field :name, autofocus: true
   .field
-    = f.label :address
+    = f.label :address, "住所"
     |&nbsp; 例: 東京都〇〇区〇〇
     br
     = f.text_field :address
   .field
-    = f.label :budget
+    = f.label :budget, "予算"
     |&nbsp; 例: 1000円~2000円
     br
     = f.text_field :budget
   .field
-    = f.label :opening_hours
+    = f.label :opening_hours, "営業時間"
     |&nbsp; 例: 午前12時~午後9時
     br
     = f.text_field :opening_hours
