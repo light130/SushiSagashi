@@ -15,6 +15,9 @@ li#shop
         handler.getMap().setZoom(16)
       });
     br
+    |電話番号：
+    = @shop.phone_number
+    br
     | 予算(昼)：
     = @shop.budget_lunch
     br
@@ -23,6 +26,9 @@ li#shop
     br
     | 営業時間：
     = @shop.opening_hours
+    br
+    | 定休日：
+    = @shop.day_off
     br
     = render 'likes/like', shop: @shop
     br
