@@ -15,8 +15,11 @@ li#shop
         handler.getMap().setZoom(16)
       });
     br
-    | 予算：
-    = @shop.budget
+    | 予算(昼)：
+    = @shop.budget_lunch
+    br
+    | 予算(夕)：
+    = @shop.budget_dinner
     br
     | 営業時間：
     = @shop.opening_hours

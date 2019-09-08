@@ -2,26 +2,31 @@ h2
   | プロフィール変更
 = form_with model: @shop, url: shop_path, local: true do |f|
   .field
-    = f.label :name
+    = f.label :name, "店名"
     br
     = f.text_field :name, autofocus: true
   .field
-    = f.label :address
+    = f.label :address, "住所"
     |&nbsp; 例: 東京都〇〇区〇〇
     br
     = f.text_field :address
   .field
-    = f.label :budget
+    = f.label :budget_lunch, "予算(昼)"
     |&nbsp; 例: 1000円~2000円
     br
-    = f.text_field :budget
+    = f.text_field :budget_lunch
   .field
-    = f.label :opening_hours
+    = f.label :budget_dinner, "予算(夕)"
+    |&nbsp; 例: 5000円~10000円
+    br
+    = f.text_field :budget_dinner
+  .field
+    = f.label :opening_hours, "営業時間"
     |&nbsp; 例: 午前12時~午後9時
     br
     = f.text_field :opening_hours
   .picture
-    = f.label :picture
+    = f.label :picture, "写真"
     br
     = f.file_field :picture, accept: 'image/jpeg, image/gif, image/png'
     br
