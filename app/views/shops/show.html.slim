@@ -5,6 +5,15 @@ li#shop
     br
     | 住所：
     = @shop.address
+    #map style="width: 800px; height: 400px;"
+    javascript:
+      handler = Gmaps.build('Google');
+      handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+        markers = handler.addMarkers(#{raw @hash.to_json});
+        handler.bounds.extendWith(markers);
+        handler.fitMapToBounds();
+        handler.getMap().setZoom(16)
+      });
     br
     | 予算：
     = @shop.budget
@@ -12,7 +21,7 @@ li#shop
     | 営業時間：
     = @shop.opening_hours
     br
-    = render 'likes/like', shop:@shop
+    = render 'likes/like', shop: @shop
     br
     | コメント
     = render @comments

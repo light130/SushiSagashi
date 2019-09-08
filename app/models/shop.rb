@@ -6,6 +6,14 @@ class Shop < ApplicationRecord
   has_many :likes
   has_many :liked_users, through: :likes, source: :user
   has_many :comments, dependent: :destroy
+  geocoded_by :address
+  after_validation :geocode, if: :address_changed?
+
+  def set_coordinates
+    geo_result = Geocoder.search(self.address)
+    self.latitude = geo_result.first.coordinates[0]
+    self.longitude = geo_result.first.coordinates[1]
+  end
 
   private
 

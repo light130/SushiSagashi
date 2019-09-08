@@ -1,5 +1,5 @@
 h1 へいらっしゃい！
 .container
   .row.align-items-center
-    - if Shop.any?
+    - if @shops.present?
       = render @shops
