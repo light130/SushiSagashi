@@ -10,8 +10,21 @@ class ShopsController < ApplicationController
     @shop = Shop.find(params[:id])
   end
 
+  def create
+    @shop = current_user.shops.build(shop_params)
+    @shop.set_coordinates
+    if @shop.save
+      redirect_to root_url
+    else
+      flash[:errors] = ["あなたは店舗を登録する権利がありません。"]
+      render 'shops/new'
+    end
+  end
+
   def update
     @shop = current_user.shops.find(params[:id])
+    @shop.address = params[:shop][:address]
+    @shop.set_coordinates
     if @shop.update_attributes(shop_params)
       flash[:notice] = "情報を更新しました。"
       redirect_to root_url
@@ -24,15 +37,10 @@ class ShopsController < ApplicationController
     @shop = Shop.find(params[:id])
     @comment = Comment.new
     @comments = @shop.comments.all
-  end
-
-  def create
-    @shop = current_user.shops.build(shop_params)
-    if @shop.save
-      redirect_to root_url
-    else
-      flash[:errors] = ["あなたは店舗を登録する権利がありません。"]
-      render 'shops/new'
+    @hash = Gmaps4rails.build_markers(@shop) do |shop, marker|
+      marker.lat shop.latitude
+      marker.lng shop.longitude
+      marker.infowindow shop.name
     end
   end
 

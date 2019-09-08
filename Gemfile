@@ -80,3 +80,6 @@ gem 'mini_magick'
 gem 'fog-aws'
 
 gem 'font-awesome-sass', '~> 5.9.0'
+
+gem 'geocoder'
+gem 'gmaps4rails'
