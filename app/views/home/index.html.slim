@@ -1,5 +1,7 @@
 h1 へいらっしゃい！
+br
+= render 'shops/search_form'
 .container
   .row.align-items-center
-    - if @shops.present?
-      = render @shops
+    - if @shops_result.present?
+      = render @shops_result

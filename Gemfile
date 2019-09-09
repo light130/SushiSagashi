@@ -83,3 +83,5 @@ gem 'font-awesome-sass', '~> 5.9.0'
 
 gem 'geocoder'
 gem 'gmaps4rails'
+
+gem 'ransack'
