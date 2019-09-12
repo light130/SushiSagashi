@@ -1,5 +1,5 @@
 h2
-  | プロフィール変更
+  | 店名変更
 = form_with model: @shop, url: shop_path, local: true do |f|
   .field
     = f.label :name, "店名"
@@ -15,12 +15,12 @@ h2
     br
     = f.text_field :phone_number
   .field
-    = f.label :budget_lunch, "予算(昼)"
+    = f.label :budget_lunch, "ランチの予算"
     |&nbsp; 例: 1000円~2000円
     br
     = f.text_field :budget_lunch
   .field
-    = f.label :budget_dinner, "予算(夕)"
+    = f.label :budget_dinner, "ディナーの予算"
     |&nbsp; 例: 5000円~10000円
     br
     = f.text_field :budget_dinner
