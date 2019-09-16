@@ -1,3 +1,4 @@
+| お気に入り
 = form_with model: @shop, url: like_path(@shop), html: { method: :delete} do |f|
   = hidden_field_tag :shop_id, @shop.id
   = button_tag type: 'submit' do

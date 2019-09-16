@@ -1,44 +1,50 @@
-li#shop
-  = @shop.name
-  .content
+  h2 = @shop.name
+  #container
     = image_tag @shop.picture.url if @shop.picture?
-    br
-    | 住所：
-    = @shop.address
-    #map style="width: 800px; height: 400px;"
-    javascript:
-      handler = Gmaps.build('Google');
-      handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-        markers = handler.addMarkers(#{raw @hash.to_json});
-        handler.bounds.extendWith(markers);
-        handler.fitMapToBounds();
-        handler.getMap().setZoom(16)
-      });
-    br
-    |電話番号：
-    = @shop.phone_number
-    br
-    | ランチの予算：〜
-    = @shop.budget_lunch
-    | 円
-    br
-    | ディナーの予算：〜
-    = @shop.budget_dinner
-    | 円
-    br
-    | 営業時間：
-    = @shop.opening_hours
-    br
-    | 定休日：
-    = @shop.day_off
-    br
     = render 'likes/like_form'
     br
-    | コメント
+    h4 コメント
     = render @comments
     br
     = render 'comments/form'
     br
-  - if current_user.admin?
-   = link_to "編集", edit_shop_path
-   = link_to "削除", @shop, method: :delete, data: { confirm: "本当に削除しますか?" }
+    .restaurant-info-table
+      h4.restaurant-info-table-title 店舗情報
+    table.c-table.c-table--form.restaurant-info-table__table
+      tbody
+        tr
+          th 住所：
+          td = @shop.address
+        tr
+          th 地図：
+          td#map style="width: 600px; height: 300px;"
+              javascript:
+                handler = Gmaps.build('Google');
+                handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+                  markers = handler.addMarkers(#{raw @hash.to_json});
+                  handler.bounds.extendWith(markers);
+                  handler.fitMapToBounds();
+                  handler.getMap().setZoom(16)
+                });
+        tr
+          th 電話番号：
+          td = @shop.phone_number
+
+        tr
+          th ランチの予算：
+          td 〜 #{@shop.budget_lunch}円
+        tr
+          th ディナーの予算：
+          td 〜 #{@shop.budget_dinner}円
+
+        tr
+          th 営業時間：
+          td = @shop.opening_hours
+
+        tr
+          th 定休日：
+          td = @shop.day_off
+    br
+    - if current_user.admin?
+         = link_to "編集", edit_shop_path
+         = link_to "削除", @shop, method: :delete, data: { confirm: "本当に削除しますか?" }
