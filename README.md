@@ -40,4 +40,4 @@ https://ancient-hamlet-79871.herokuapp.com/
 - 画像ファイルのアップロード機能
 - 検索機能
 - Google Maps JavaScript APIを利用した地図表示機能
-- RSpecを利用したテスト(あくまで予定であり、目下学習中)
+- RSpecを利用したテスト(予定であり、目下学習中)
