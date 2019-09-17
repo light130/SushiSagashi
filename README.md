@@ -1,24 +1,43 @@
-# README
+# 東京寿司さがしについて
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## URL
+https://ancient-hamlet-79871.herokuapp.com/
 
-Things you may want to cover:
+## コンセプト
+東京の寿司屋を検索し、感想の共有やお気に入り登録ができる口コミサイト
 
-* Ruby version
+## テストユーザー
+- メールアドレス:test@example.com
+- パスワード：password
 
-* System dependencies
+## 開発理由
+開発者の好きな食べ物が寿司であり、東京の寿司屋に関する情報を共有したり、お気に入りのお店を記録に残したいと考えた
 
-* Configuration
+## 開発環境
+- 言語:Ruby2.6.3
+- フレームワーク:Ruby on Rails5.2.3
+- DB:PostgreSQL
+- テンプレートエンジン:Slim
+- インフラ:Docker/Heroku
+- バージョン管理:Git
+- CI/CDツール:Circle CI
 
-* Database creation
+## 重視した点
+- Trelloでタスク管理し、Gitでブランチを切ってから作業を始めて、プルリクエストを送り、コードレビュー後にマージをするなど、できるだけ実務に近い形式で開発を行った
+- このアプリの制作以前まで教材としていたRailsチュートリアルに書いていない機能を実装
+- RansackやDeviseなどの有名なGemを使用
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 実装した機能の概要
+- ユーザー登録・編集・削除機能 
+- ユーザー登録の際の入力確認機能
+- ログイン機能
+- 店舗登録・編集・削除機能(管理者のみ可能)
+- 店舗一覧表示機能
+- 店舗詳細表示機能
+- お気に入り登録・削除機能
+- コメント投稿・削除機能
+- コメントに対するいいね機能
+- 画像ファイルのアップロード機能
+- 検索機能
+- Google Maps JavaScript APIを利用した地図表示機能
+- RSpecを利用したテスト(あくまで予定であり、目下学習中)
