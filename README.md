@@ -14,13 +14,13 @@ https://ancient-hamlet-79871.herokuapp.com/
 開発者の好きな食べ物が寿司であり、東京の寿司屋に関する情報を共有したり、お気に入りのお店を記録に残したいと考えた
 
 ## 開発環境
-- 言語:Ruby2.6.3
-- フレームワーク:Ruby on Rails5.2.3
-- DB:PostgreSQL
-- テンプレートエンジン:Slim
-- インフラ:Docker/Heroku
-- バージョン管理:Git
-- CI/CDツール:Circle CI
+- 言語 : Ruby2.6.3
+- フレームワーク : Ruby on Rails5.2.3
+- DB : PostgreSQL
+- テンプレートエンジン : Slim
+- インフラ : Docker/Heroku
+- バージョン管理 : Git
+- CI/CDツール : Circle CI
 
 ## 重視した点
 - Trelloでタスク管理し、Gitでブランチを切ってから作業を始めて、プルリクエストを送り、コードレビュー後にマージをするなど、できるだけ実務に近い形式で開発を行った
