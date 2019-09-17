@@ -7,8 +7,8 @@ https://ancient-hamlet-79871.herokuapp.com/
 東京の寿司屋を検索し、感想の共有やお気に入り登録ができる口コミサイト
 
 ## テストユーザー
-- メールアドレス:test@example.com
-- パスワード：password
+- メールアドレス : test@example.com
+- パスワード ： password
 
 ## 開発理由
 開発者の好きな食べ物が寿司であり、東京の寿司屋に関する情報を共有したり、お気に入りのお店を記録に残したいと考えた
