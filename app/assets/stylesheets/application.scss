@@ -2,7 +2,7 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
-/* universal */
+/* main */
 
 h2 {
   font-weight: bold;
@@ -20,21 +20,8 @@ h2 {
   border-left: solid 3px #fa0;
   border-left-width: 3px;
   border-left-style: solid;
-  border-left-color: rgb(255, 255, 255);
-  font-size: 1.4rem;
-}
-
-table {
-    display: table;
-    border-collapse: separate;
-    border-spacing: 2px;
-    -webkit-border-horizontal-spacing: 2px;
-    -webkit-border-vertical-spacing: 2px;
-    border-color: grey;
-    border-top-color: grey;
-    border-right-color: grey;
-    border-bottom-color: grey;
-    border-left-color: grey;
+  border-left-color: black;
+  font-size: 1.5rem;
 }
 
 .c-table.c-table--form {
@@ -42,29 +29,14 @@ table {
     border-top: 1px solid #d6ceb4;
     border-top-width: 1px;
     border-top-style: solid;
-    border-top-color: rgb(214, 206, 180);
+    border-top-color: #d6ceb4;
 }
 
-.restrant-info-table__table {
-    margin-bottom: 25px;
-    line-height: 1.5;
-    font-size: 1.3rem;
-}
 
 .c-table {
     border-collapse: collapse;
     width: 100%;
     background-color: #fff;
-}
-
-tbody {
-    display: table-row-group;
-    vertical-align: middle;
-    border-color: inherit;
-    border-top-color: inherit;
-    border-right-color: inherit;
-    border-bottom-color: inherit;
-    border-left-color: inherit;
 }
 
 .c-table tr {
@@ -80,7 +52,7 @@ tbody {
     border-bottom-width: 1px;
     border-bottom-style: solid;
     border-bottom-color: rgb(214, 206, 180);
-    background-color: #faf8f5;
+    background-color: #f5f5f5;
 }
 
 .restaurant-info-table__table>tbody>tr>th {
@@ -100,50 +72,17 @@ th {
     text-align: left;
 }
 
-.restaurant-info-table__table>tbody>tr>td {
-    padding: 15px 0 15px 20px;
-    padding-top: 15px;
-    padding-right: 0px;
-    padding-bottom: 15px;
-    padding-left: 20px;
-    vertical-align: middle;
-}
-
 .c-table tbody tr td {
     border-bottom: 1px solid #d6ceb4;
     border-bottom-width: 1px;
     border-bottom-style: solid;
     border-bottom-color: rgb(214, 206, 180);
-    vertical-align: inherit;
     padding: 1rem;
     padding-top: 1rem;
     padding-right: 1rem;
     padding-bottom: 1rem;
     padding-left: 1rem;
 }
-
-.restaurant-info-table__address {
-    margin-bottom: 1rem;
-}
-
-// .c-table tbody tr th {
-//     border-bottom: 1px solid #d6ceb4;
-//     border-bottom-width: 1px;
-//     border-bottom-style: solid;
-//     border-bottom-color: rgb(214, 206, 180);
-//     color: #13131e;
-//     font-weight: bold;
-//     vertical-align: inherit;
-//     width: 9em;
-//     padding: 1rem;
-//     padding-top: 1rem;
-//     padding-right: 1rem;
-//     padding-bottom: 1rem;
-//     padding-left: 1rem;
-// }
-
-/* map */
-
 
 /* avatar */
 
