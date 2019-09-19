@@ -10,8 +10,8 @@ html
   body
    = render 'layouts/header'
    .container.text-center
-      p.notice = notice if notice.present?
-      p.alert = alert if alert.present?
+      p.notice = notice.presence
+      p.alert = alert.presence
       - if flash[:errors].present?
         - flash[:errors].each do |messages|
           = messages

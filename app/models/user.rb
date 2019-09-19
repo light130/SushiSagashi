@@ -2,13 +2,15 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          :confirmable, :timeoutable
-  has_many :shops
   validates :name, presence: true
-  has_many :likes, dependent: :destroy
-  has_many :liked_shops, through: :likes, source: :shop
-  has_many :comments, dependent: :destroy
   mount_uploader :avatar, PictureUploader
-  has_many :goods, dependent: :destroy
+  has_many :shops
+  with_options dependent: :destroy do |assoc|
+    assoc.has_many :likes
+    assoc.has_many :comments
+    assoc.has_many :goods
+  end
+  has_many :liked_shops, through: :likes, source: :shop
   has_many :has_goods, through: :goods, source: :comment
 
   def like(shop)

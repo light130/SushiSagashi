@@ -12,7 +12,7 @@ class ShopsController < ApplicationController
 
   def create
     @shop = current_user.shops.build(shop_params)
-    @shop.set_coordinates
+    @shop.set_coordinates if @shop.address.present?
     if @shop.save
       redirect_to root_url
     else
