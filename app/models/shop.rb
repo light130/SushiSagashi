@@ -2,6 +2,7 @@ class Shop < ApplicationRecord
   belongs_to :user, -> { where admin: true }
   mount_uploader :picture, PictureUploader
   validates :user_id, presence: true
+  validates :name, presence: true
   validate :picture_size
   has_many :likes, dependent: :destroy
   has_many :liked_users, through: :likes, source: :user

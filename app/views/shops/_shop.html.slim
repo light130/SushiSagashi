@@ -5,14 +5,13 @@
     br
     | 住所：
     = shop.address
+    - if shop.budget_lunch.present?
+      br
+      | ランチの予算：
+      | 〜 #{shop.budget_lunch}円
     br
-    | ランチの予算：〜
-    = shop.budget_lunch
-    | 円
-    br
-    | ディナーの予算：〜
-    = shop.budget_dinner
-    | 円
+    | ディナーの予算：
+    | 〜 #{shop.budget_dinner}円
     br
     | 営業時間：
     = shop.opening_hours
