@@ -9,13 +9,11 @@
         | 住所：
         = shop.address
         br
-        | ランチの予算：〜
-        = shop.budget_lunch
-        | 円
+        | ランチの予算：
+        | 〜 #{shop.budget_lunch}円
         br
-        | ディナーの予算：〜
-        = shop.budget_dinner
-        | 円
+        | ディナーの予算：
+        | 〜 #{shop.budget_lunch}円
         br
         | 営業時間：
         = shop.opening_hours

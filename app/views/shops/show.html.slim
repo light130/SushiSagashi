@@ -24,7 +24,7 @@
                   markers = handler.addMarkers(#{raw @hash.to_json});
                   handler.bounds.extendWith(markers);
                   handler.fitMapToBounds();
-                  handler.getMap().setZoom(16)
+                  handler.getMap().setZoom(15)
                 });
         tr
           th 電話番号：
@@ -32,7 +32,10 @@
 
         tr
           th ランチの予算：
-          td 〜 #{@shop.budget_lunch}円
+          - if @shop.budget_lunch.present?
+            td 〜 #{@shop.budget_lunch}円
+          - else
+            td 営業時間外
         tr
           th ディナーの予算：
           td 〜 #{@shop.budget_dinner}円
