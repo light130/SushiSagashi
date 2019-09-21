@@ -1,5 +1,5 @@
 = form_with model: comment, url: shop_comment_goods_path(shop_id: comment.shop_id, comment_id: comment.id), method: :post do |f|
   = hidden_field_tag :comment_id, comment.id
   = button_tag type: 'submit' do
-    i.far.fa-thumbs-up
+    i.far.fa-thumbs-up.fa-blue
   = comment.user_goods.count

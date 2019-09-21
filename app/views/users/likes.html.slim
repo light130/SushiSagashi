@@ -1,19 +1,4 @@
 .container
   .row.align-items-center
     - @shops.each do |shop|
-      .col-sm
-        = link_to shop.name, shop
-        .content
-        = image_tag shop.picture.url if shop.picture?
-        br
-        | 住所：
-        = shop.address
-        br
-        | ランチの予算：
-        | 〜 #{shop.budget_lunch}円
-        br
-        | ディナーの予算：
-        | 〜 #{shop.budget_lunch}円
-        br
-        | 営業時間：
-        = shop.opening_hours
+      = render "shops/shop_display", shop: shop
