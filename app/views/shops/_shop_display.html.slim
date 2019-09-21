@@ -1,0 +1,26 @@
+.col-sm
+  .card
+    .card-title
+      = link_to shop.name, shop
+    .card-img-top
+      - if shop.picture?
+        = link_to shop
+          = image_tag shop.picture.url
+    .card-body
+      | 住所：
+      = shop.address
+      - if shop.budget_lunch.present?
+        br
+        | ランチの予算：
+        | 〜 #{shop.budget_lunch}円
+      br
+      | ディナーの予算：
+      | 〜 #{shop.budget_dinner}円
+      br
+      | 営業時間：
+      = shop.opening_hours
+    .card-footer
+      | お気に入り
+      i.fa.fa-heart.fa-red.mr-2 = shop.liked_users.count
+      | コメント
+      i.fas.fa-comment.fa-darkgrey = shop.comments.count

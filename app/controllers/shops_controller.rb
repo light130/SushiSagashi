@@ -16,7 +16,7 @@ class ShopsController < ApplicationController
     if @shop.save
       redirect_to root_url
     else
-      flash[:errors] = ["あなたは店舗を登録する権利がありません。"]
+      flash.now[:errors] = ["店舗登録ができませんでした。"]
       render 'shops/new'
     end
   end

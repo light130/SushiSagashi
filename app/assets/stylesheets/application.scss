@@ -3,10 +3,21 @@
 @import "font-awesome";
 
 /* main */
+body {
+  background-color: #f9f9ff;
+}
 
 h2 {
   font-weight: bold;
 }
+
+.card {
+  background-color: white;
+  margin-bottom: 15px;
+  width: 21rem;
+}
+
+
 
 .restaurant-info-table-title {
   margin: 15px 0;
@@ -92,6 +103,33 @@ th {
   border-radius: 50%;
   object-fit: cover;
 }
+
+/* icon */
+.fa-red {
+  color: red;
+}
+
+.fa-blue {
+  color: blue;
+}
+
+.fa-darkgrey {
+  color: darkgrey;
+}
+
+/* messages */
+.error {
+  color: red;
+}
+
+#error_explanation {
+  color: red;
+}
+
+.alert {
+  color: red;
+}
+
 
 /* footer */
 
