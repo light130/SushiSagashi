@@ -17,7 +17,9 @@ module Myapp
     config.generators do |generator|
       generator.test_frameword = "rspec",
       generator.helper_specs = false,
-      generator.view_specs = false
+      generator.view_specs = false,
+      generator.routing_specs = false,
+      generator.request_specs = false
     end
 
     # Settings in config/environments/* take precedence over those specified here.
