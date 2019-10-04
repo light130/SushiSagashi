@@ -2,8 +2,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          :confirmable, :timeoutable
-  validates :name, presence: true
+         
   mount_uploader :avatar, PictureUploader
+
   has_many :shops
   with_options dependent: :destroy do |assoc|
     assoc.has_many :likes
@@ -12,6 +13,8 @@ class User < ApplicationRecord
   end
   has_many :liked_shops, through: :likes, source: :shop
   has_many :has_goods, through: :goods, source: :comment
+
+  validates :name, presence: true
 
   def like(shop)
     likes.create(shop_id: shop.id)
