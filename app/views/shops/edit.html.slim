@@ -7,26 +7,34 @@ h2
     = f.text_field :name, autofocus: true
   .field
     = f.label :address, "住所"
-    |&nbsp; 例: 東京都〇〇区〇〇
+    |&nbsp; 例: 東京都中央区銀座1-3-10
     br
     = f.text_field :address
+  .field
+    = f.label :latitude, "緯度"
+    br
+    = f.text_field :latitude
+  .field
+    = f.label :longitude, "経度"
+    br
+    = f.text_field :longitude
   .field
     = f.label :phone_number, "電話番号"
     br
     = f.text_field :phone_number
   .field
     = f.label :budget_lunch, "ランチの予算"
-    |&nbsp; 例: 1000円~2000円
+    |&nbsp; 例: 2000
     br
     = f.text_field :budget_lunch
   .field
     = f.label :budget_dinner, "ディナーの予算"
-    |&nbsp; 例: 5000円~10000円
+    |&nbsp; 例: 10000
     br
     = f.text_field :budget_dinner
   .field
     = f.label :opening_hours, "営業時間"
-    |&nbsp; 例: 午前12時~午後9時
+    |&nbsp; 例: 11:00~23:00
     br
     = f.text_field :opening_hours
   .field
