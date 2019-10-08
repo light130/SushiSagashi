@@ -6,6 +6,7 @@ require File.expand_path('../../config/environment', __FILE__)
 abort("The Rails environment is running in production mode!") if Rails.env.production?
 require 'rspec/rails'
 require 'capybara/rspec'
+# require 'Paperclip/matchers'
 require 'devise'
 
 Capybara.register_driver :selenium_remote do |app|
@@ -48,6 +49,13 @@ RSpec.configure do |config|
     driven_by :selenium_remote
     host! "http://#{Capybara.server_host}:#{Capybara.server_port}"
   end
+
+  config.include Devise::Test::ControllerHelpers, type: :controller
+  # config.include RequestSpecHelper, type: :request
+  config.include Devise::Test::IntegrationHelpers, type: :feature
+
+  # config.include Paperclip::Shoulda::Matchers
+
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
@@ -75,4 +83,15 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+
+  config.after(:suite) do
+    FileUtils.rm_rf(Dir["#{Rails.root}/spec/test_uploads"])
+  end
+end
+
+Shoulda::Matchers.configure do |config|
+  config.integrate do |with|
+    with.test_framework :rspec
+    with.library :rails
+  end
 end

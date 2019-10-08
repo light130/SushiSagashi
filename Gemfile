@@ -27,6 +27,7 @@ gem 'font-awesome-sass', '~> 5.9.0'
 gem 'geocoder'
 gem 'gmaps4rails'
 gem 'ransack'
+gem 'paperclip'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -38,6 +39,7 @@ group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'spring-commands-rspec'
 end
 
 group :test do
@@ -45,5 +47,8 @@ group :test do
   gem 'launchy'
   gem 'selenium-webdriver'
   gem 'webdrivers'
+  gem 'shoulda-matchers'
+  gem 'vcr'
+  gem 'webmock'
   gem 'rspec-rails'
 end
