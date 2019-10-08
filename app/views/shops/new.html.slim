@@ -7,13 +7,21 @@ h2
     = f.text_field :name, autofocus: true
   .field
     = f.label :address, "住所"
-    |&nbsp; 例: 東京都〇〇区〇〇
+    |&nbsp; 例: 東京都中央区銀座1-3-10
     br
     = f.text_field :address
   .field
-   = f.label :phone_number, "電話番号"
-   br
-   = f.text_field :phone_number
+    = f.label :latitude, "緯度"
+    br
+    = f.text_field :latitude
+  .field
+    = f.label :longitude, "経度"
+    br
+    = f.text_field :longitude
+  .field
+    = f.label :phone_number, "電話番号"
+    br
+    = f.text_field :phone_number
   .field
     = f.label :budget_lunch, "ランチの予算"
     |&nbsp; 例: 2000
@@ -34,7 +42,8 @@ h2
     br
     = f.text_field :day_off
   .picture
-    f.label :picture
+    = f.label :picture, "写真"
+    br
     = f.file_field :picture, accept: 'image/jpeg, image/gif, image/png'
     br
     br

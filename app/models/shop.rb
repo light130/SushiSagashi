@@ -4,8 +4,6 @@ class Shop < ApplicationRecord
 
   mount_uploader :picture, PictureUploader
 
-  geocoded_by :address
-
   has_many :likes, dependent: :destroy
   has_many :liked_users, through: :likes, source: :user
   has_many :comments, dependent: :destroy
@@ -13,8 +11,9 @@ class Shop < ApplicationRecord
   validates :user_id, presence: true
   validates :name, presence: true
   validates :address, presence: true
+  validates :latitude, presence: true
+  validates :longitude, presence: true
   validate :picture_size
-  after_validation :geocode, if: :address_changed?
 
   private
 
