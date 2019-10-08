@@ -1,23 +1,17 @@
 class GoodsController < ApplicationController
 
   def create
-    @shop = Shop.find(params[:shop_id])
+    shop = Shop.find(params[:shop_id])
     comment = Comment.find(params[:comment_id])
     current_user.good(comment)
-    respond_to do |format|
-      format.html { redirect_to @shop }
-      format.js
-    end
+    redirect_back(fallback_location: shop_url(shop))
   end
 
   def destroy
-    @shop = Shop.find(params[:shop_id])
+    shop = Shop.find(params[:shop_id])
     comment = Comment.find(params[:comment_id])
     current_user.normal(comment)
-    respond_to do |format|
-      format.html { redirect_to @shop }
-      format.js
-    end
+    redirect_back(fallback_location: shop_url(shop))
   end
 
 end
