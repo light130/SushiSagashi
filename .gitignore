@@ -28,3 +28,4 @@
 
 #Ignore uploaded picture for test
 /public/uploads
+/spec/test_uploads
