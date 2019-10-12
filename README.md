@@ -14,8 +14,8 @@ https://ancient-hamlet-79871.herokuapp.com/
 開発者の好きな食べ物が寿司であり、東京の寿司屋に関する情報を共有したり、お気に入りのお店を記録に残したかったから
 
 ## 開発環境
-- 言語 : Ruby2.6.3
-- フレームワーク : Ruby on Rails5.2.3
+- 言語 : Ruby2.6.5
+- フレームワーク : Ruby on Rails6.0.0
 - DB : PostgreSQL
 - テンプレートエンジン : Slim
 - インフラ : Docker/Heroku
@@ -28,7 +28,7 @@ https://ancient-hamlet-79871.herokuapp.com/
 - RansackやDeviseなどの有名なGemを使用
 
 ## 実装した機能の概要
-- ユーザー登録・編集・削除機能 
+- ユーザー登録・編集・削除機能
 - ユーザー登録の際の入力確認機能
 - ログイン機能
 - 店舗登録・編集・削除機能(管理者のみ可能)
