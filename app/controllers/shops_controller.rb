@@ -15,7 +15,6 @@ class ShopsController < ApplicationController
     if @shop.save
       redirect_to root_url
     else
-      flash.now[:errors] = ["店舗登録ができませんでした。"]
       render 'shops/new'
     end
   end
@@ -26,7 +25,6 @@ class ShopsController < ApplicationController
       flash[:notice] = "情報を更新しました。"
       redirect_to root_url
     else
-      flash.now[:errors] = ["店舗更新ができませんでした。"]
       render 'edit'
     end
   end

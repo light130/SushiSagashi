@@ -23,6 +23,18 @@ ja:
               confirmation: "がパスワードと一致していません。"
             current_password:
               blank: "を入力してください。"
+        shop:
+          attributes:
+            user:
+              required: "は店舗を登録する権利がありません。"
+            name:
+              blank: "が入力されていません。"
+            address:
+              blank: "が入力されていません。"
+            latitude:
+              blank: "が入力されていません。"
+            longitude:
+              blank: "が入力されていません。"
     attributes:
       user:
         current_password: "現在のパスワード"
