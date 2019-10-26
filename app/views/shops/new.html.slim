@@ -1,6 +1,7 @@
 h2
   | 店舗登録
 = form_with model: @shop, url: shops_path, local: true do |f|
+  = render "devise/shared/error_messages", resource: @shop
   .field
     = f.label :name, "店名"
     br

@@ -11,10 +11,6 @@ html
    = render 'layouts/header'
    .container.text-center
       p.notice = notice.presence
-      #error_explanation
-        p.alert = alert.presence
-        - if flash[:errors].present?
-          - flash[:errors].each do |messages|
-            = messages
+      p.alert = alert.presence
       = yield
       = render 'layouts/footer'
