@@ -2,7 +2,7 @@ class LikesController < ApplicationController
 
   def create
     @shop = Shop.find(params[:shop_id])
-    current_user.like(@shop)
+    Like.create(user_id: current_user.id, shop_id: @shop.id)
     respond_to do |format|
       format.html { redirect_to @shop }
       format.js
@@ -11,7 +11,7 @@ class LikesController < ApplicationController
 
   def destroy
     @shop = Shop.find(params[:shop_id])
-    current_user.unlike(@shop)
+    Like.destroy(user_id: current_user.id, shop_id: @shop.id)
     respond_to do |format|
       format.html { redirect_to @shop }
       format.js
