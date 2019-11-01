@@ -1,7 +1,7 @@
   h2 = @shop.name
   #container
     = image_tag @shop.picture.url if @shop.picture?
-    = render 'likes/like_form'
+    = render 'shop_favorites/like_form'
     br
     h4 コメント
     = render @comments
