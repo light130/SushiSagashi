@@ -10,7 +10,8 @@ class GoodsController < ApplicationController
   def destroy
     shop = Shop.find(params[:shop_id])
     comment = Comment.find(params[:comment_id])
-    Good.destroy(user_id: current_user.id, comment_id: comment.id)
+    good = Good.find_by(user_id: current_user.id, comment_id: comment.id)
+    good.destroy
     redirect_back(fallback_location: shop_url(shop))
   end
 

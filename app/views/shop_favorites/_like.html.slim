@@ -1,5 +1,5 @@
 | お気に入り
-= form_with model: @shop, url: likes_path, method: :post do |f|
+= form_with model: @shop, url: shop_favorites_path, method: :post do |f|
   = hidden_field_tag :shop_id, @shop.id
   = button_tag type: 'submit' do
     i.far.fa-heart.fa-red

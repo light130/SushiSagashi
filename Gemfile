@@ -28,6 +28,8 @@ gem 'gmaps4rails'
 gem 'ransack'
 gem 'paperclip'
 gem "webpacker"
+gem 'rails_best_practices'
+gem 'rubocop', require: false
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

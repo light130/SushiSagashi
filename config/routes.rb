@@ -16,5 +16,5 @@ Rails.application.routes.draw do
       resources :goods, only: [:create, :destroy]
     end
   end
-  resources :likes, only: [:create, :destroy]
+  resources :shop_favorites, only: [:create, :destroy]
 end

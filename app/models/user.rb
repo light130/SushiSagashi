@@ -7,11 +7,11 @@ class User < ApplicationRecord
 
   has_many :shops
   with_options dependent: :destroy do |assoc|
-    assoc.has_many :likes
+    assoc.has_many :shop_favorites
     assoc.has_many :comments
     assoc.has_many :goods
   end
-  has_many :liked_shops, through: :likes, source: :shop
+  has_many :liked_shops, through: :shop_favorites, source: :shop
   has_many :has_goods, through: :goods, source: :comment
 
   validates :name, presence: true
