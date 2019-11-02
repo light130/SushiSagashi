@@ -9,10 +9,10 @@ class User < ApplicationRecord
   with_options dependent: :destroy do |assoc|
     assoc.has_many :shop_favorites
     assoc.has_many :comments
-    assoc.has_many :goods
+    assoc.has_many :comment_favorites
   end
   has_many :liked_shops, through: :shop_favorites, source: :shop
-  has_many :has_goods, through: :goods, source: :comment
+  has_many :has_comment_favorites, through: :comment_favorites, source: :comment
 
   validates :name, presence: true
 
@@ -20,8 +20,8 @@ class User < ApplicationRecord
     liked_shops.include?(shop)
   end
 
-  def good?(comment)
-    has_goods.include?(comment)
+  def comment_favorite?(comment)
+    has_comment_favorites.include?(comment)
   end
 
 end

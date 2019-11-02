@@ -1,5 +1,0 @@
-= form_with model: comment, url: shop_comment_good_path(shop_id: comment.shop_id, comment_id: comment.id), method: :delete do |f|
-  = hidden_field_tag :comment_id, comment.id
-  = button_tag type: 'submit' do
-    i.fas.fa-thumbs-up.fa-blue
-  = comment.user_goods.count
