@@ -4,6 +4,6 @@ FactoryBot.define do
     address { "Tokyo" }
     latitude { 0 }
     longitude { 0 }
-    association :user
+    association :user, admin: true
   end
 end

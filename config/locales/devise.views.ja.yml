@@ -35,7 +35,7 @@ ja:
               blank: "が入力されていません。"
             longitude:
               blank: "が入力されていません。"
-        like:
+        shop_favorite:
           attributes:
             user:
               required: "を確認できません。"

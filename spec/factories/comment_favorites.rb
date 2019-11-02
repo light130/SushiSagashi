@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :good do
+  factory :comment_favorite do
     association :comment
     association :user
   end

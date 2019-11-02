@@ -1,0 +1,5 @@
+= form_with model: comment, url: shop_comment_comment_favorite_path(shop_id: comment.shop_id, comment_id: comment.id), method: :delete do |f|
+  = hidden_field_tag :comment_id, comment.id
+  = button_tag type: 'submit' do
+    i.fas.fa-thumbs-up.fa-blue
+  = comment.comment_favorite_users.count

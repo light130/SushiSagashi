@@ -1,5 +1,5 @@
-class Good < ApplicationRecord
-  
+class CommentFavorite < ApplicationRecord
+
   belongs_to :user
   belongs_to :comment
 

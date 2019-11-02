@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Shop, type: :model do
-  it "does not allow user to make shop" do
+  it "does not allow a user to make shop" do
     user = FactoryBot.create(:user)
     shop = FactoryBot.build(:shop, user_id: user.id)
     shop.valid?
