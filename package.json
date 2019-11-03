@@ -1,5 +1,5 @@
 {
-  "name": "myapp",
+  "name": "sushi_sagashi",
   "private": true,
   "dependencies": {
     "@rails/webpacker": "^4.0.7"
