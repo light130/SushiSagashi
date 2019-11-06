@@ -48,7 +48,7 @@ group :test do
   gem 'capybara', '>= 2.15'
   gem 'launchy'
   gem 'selenium-webdriver'
-  gem 'webdrivers'
+  gem 'webdrivers', require: !ENV['SELENIUM_REMOTE_URL']
   gem 'shoulda-matchers'
   gem 'vcr'
   gem 'webmock'

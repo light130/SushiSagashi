@@ -10,7 +10,7 @@ require 'capybara/rspec'
 require 'devise'
 
 Capybara.register_driver :selenium_remote do |app|
-  url = "http://chrome:4444/wd/hub"
+  url = "http://selenium_chrome:4444/wd/hub"
   opts = { desired_capabilities: :chrome, browser: :remote, url: url}
   driver = Capybara::Selenium::Driver.new(app, opts)
 end
@@ -46,13 +46,12 @@ RSpec.configure do |config|
   end
 
   config.before(:each, type: :system, js: true) do
-    driven_by :selenium_remote
-    host! "http://#{Capybara.server_host}:#{Capybara.server_port}"
+    driven_by :selenium_chrome_headless
   end
 
   config.include Devise::Test::ControllerHelpers, type: :controller
   # config.include RequestSpecHelper, type: :request
-  config.include Devise::Test::IntegrationHelpers, type: :feature
+  config.include Devise::Test::IntegrationHelpers, type: :system
 
   # config.include Paperclip::Shoulda::Matchers
 
