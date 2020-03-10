@@ -1,7 +1,9 @@
 version: '3'
 services:
   db:
-    image: postgres
+    image: postgres:9.5.18
+    environment:
+      POSTGRES_PASSWORD: <%= ENV['POSTGRES_PASSWORD'] %>
     volumes:
       - ./tmp/db:/var/lib/postgresql/data
   web:
