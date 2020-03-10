@@ -3,9 +3,9 @@ jobs:
   build:
     machine:
       image: circleci/postgres:9.6-postgis-ram
-       environment:
-          POSTGRES_USER: 'username'
-          POSTGRES_HOST_AUTH_METHOD: trust
+      environment:
+        POSTGRES_USER: 'postgres'
+        POSTGRES_HOST_AUTH_METHOD: trust
     steps:
       - checkout
       - run:
