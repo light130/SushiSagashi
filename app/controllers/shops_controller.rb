@@ -22,7 +22,7 @@ class ShopsController < ApplicationController
   def update
     @shop = current_user.shops.find(params[:id])
     if @shop.update_attributes(shop_params)
-      flash[:notice] = "情報を更新しました。"
+      flash[:notice] = '情報を更新しました。'
       redirect_to root_url
     else
       render 'edit'
@@ -42,7 +42,7 @@ class ShopsController < ApplicationController
 
   def destroy
     Shop.find(params[:id]).destroy
-    flash[:notice] = "削除しました。"
+    flash[:notice] = '削除しました。'
     redirect_to root_url
   end
 
@@ -55,5 +55,4 @@ class ShopsController < ApplicationController
    def admin_user
      redirect_to root_url unless current_user.admin?
    end
-
 end

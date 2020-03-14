@@ -15,11 +15,11 @@ gem 'font-awesome-sass', '~> 5.9.0'
 gem 'gmaps4rails'
 gem 'html2slim'
 gem 'jbuilder', '~> 2.5'
-gem "jquery-rails"
+gem 'jquery-rails'
 gem 'mini_magick'
+gem 'paperclip'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.11'
-gem 'paperclip'
 gem 'rails', '~> 6.0.0'
 gem 'ransack'
 gem 'sass-rails', '~> 5.0'
@@ -27,7 +27,7 @@ gem 'slim-rails'
 gem 'turbolinks', '~> 5'
 gem 'tzinfo-data'
 gem 'uglifier', '>= 1.3.0'
-gem "webpacker"
+gem 'webpacker'
 
 group :development, :test do
   gem 'byebug'
@@ -53,6 +53,6 @@ group :test do
   gem 'selenium-webdriver'
   gem 'shoulda-matchers'
   gem 'vcr'
-  gem 'webmock'
   gem 'webdrivers', require: !ENV['SELENIUM_REMOTE_URL']
+  gem 'webmock'
 end

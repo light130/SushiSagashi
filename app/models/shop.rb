@@ -1,6 +1,5 @@
 class Shop < ApplicationRecord
-
-  belongs_to :user, -> { where admin: true }
+  belongs_to :admin, class_name: User, foreign_key: :user_id -> { where admin: true }
 
   mount_uploader :picture, PictureUploader
 
@@ -22,5 +21,4 @@ class Shop < ApplicationRecord
         errors.add(:picture, "should be less than 5MB")
       end
     end
-
 end
