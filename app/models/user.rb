@@ -23,5 +23,4 @@ class User < ApplicationRecord
   def comment_favorite?(comment)
     has_comment_favorites.include?(comment)
   end
-
 end

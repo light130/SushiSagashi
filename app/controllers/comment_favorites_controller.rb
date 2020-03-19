@@ -1,5 +1,4 @@
 class CommentFavoritesController < ApplicationController
-
   def create
     shop = Shop.find(params[:shop_id])
     comment = Comment.find(params[:comment_id])
@@ -14,5 +13,4 @@ class CommentFavoritesController < ApplicationController
     comment_favorite.destroy
     redirect_back(fallback_location: shop_url(shop))
   end
-
 end

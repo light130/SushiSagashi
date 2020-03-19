@@ -1,5 +1,4 @@
 class Comment < ApplicationRecord
-
   belongs_to :user
   belongs_to :shop
 
@@ -7,5 +6,4 @@ class Comment < ApplicationRecord
   has_many :comment_favorite_users, through: :comment_favorites, source: :user
 
   validates :content, presence: true
-
 end

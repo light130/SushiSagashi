@@ -8,5 +8,4 @@ class UsersController < ApplicationController
   def likes
     @shops = current_user.liked_shops.all
   end
-
 end

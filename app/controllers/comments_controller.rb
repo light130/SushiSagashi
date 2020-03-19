@@ -1,14 +1,13 @@
 class CommentsController < ApplicationController
-
   def create
     shop = Shop.find(params[:shop_id])
     comment = shop.comments.build(comment_params)
     comment.user_id = current_user.id
     if comment.save
-      flash[:notice] = "コメントしました。"
+      flash[:notice] = 'コメントしました。'
       redirect_back(fallback_location: shop_url(shop))
     else
-      flash[:alert] = "コメントできませんでした。"
+      flash[:alert] = 'コメントできませんでした。'
       redirect_back(fallback_location: shop_url(shop))
     end
   end
@@ -20,10 +19,10 @@ class CommentsController < ApplicationController
     shop = Shop.find(params[:shop_id])
     comment = shop.comments.find(params[:id])
     if comment.destroy
-      flash[:notice] = "コメントを削除しました。"
+      flash[:notice] = 'コメントを削除しました。'
       redirect_back(fallback_location: shop_url(shop))
     else
-      flash[:alert] = "コメントを削除できませんでした。"
+      flash[:alert] = 'コメントを削除できませんでした。'
       redirect_back(fallback_location: shop_url(shop))
     end
   end
@@ -33,5 +32,4 @@ class CommentsController < ApplicationController
     def comment_params
       params.require(:comment).permit(:content)
     end
-
 end

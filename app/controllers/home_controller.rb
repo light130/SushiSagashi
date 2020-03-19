@@ -1,5 +1,4 @@
 class HomeController < ApplicationController
-
   def index
     if params[:q].present?
       @q = Shop.ransack(search_params)
@@ -14,5 +13,4 @@ class HomeController < ApplicationController
   def search_params
     params.require(:q).permit(:address_cont, :sorts)
   end
-
 end

@@ -1,5 +1,4 @@
 class ShopFavoritesController < ApplicationController
-
   def create
     @shop = Shop.find(params[:shop_id])
     ShopFavorite.create(user_id: current_user.id, shop_id: @shop.id)
@@ -18,5 +17,4 @@ class ShopFavoritesController < ApplicationController
       format.js
     end
   end
-
 end
