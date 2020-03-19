@@ -1,6 +1,4 @@
-@import "bootstrap";
-@import "font-awesome-sprockets";
-@import "font-awesome";
+@import '~bootstrap/scss/bootstrap';
 
 /* main */
 body {
@@ -16,8 +14,6 @@ h2 {
   margin-bottom: 15px;
   width: 21rem;
 }
-
-
 
 .restaurant-info-table-title {
   margin: 15px 0;

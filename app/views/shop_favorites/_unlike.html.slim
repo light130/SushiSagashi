@@ -2,5 +2,5 @@
 = form_with model: @shop, url: shop_favorite_path(@shop), html: { method: :delete} do |f|
   = hidden_field_tag :shop_id, @shop.id
   = button_tag type: 'submit' do
-    i.fa.fa-heart.fa-red
+    i.fas.fa-heart.fa-red
   = @shop.liked_users.count

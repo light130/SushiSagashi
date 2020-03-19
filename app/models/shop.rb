@@ -1,5 +1,5 @@
 class Shop < ApplicationRecord
-  belongs_to :admin, class_name: User, foreign_key: :user_id -> { where admin: true }
+  belongs_to :user, -> { where admin: true }
 
   mount_uploader :picture, PictureUploader
 
