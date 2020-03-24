@@ -9,7 +9,7 @@ require 'capybara/rspec'
 # require 'Paperclip/matchers'
 require 'devise'
 
-Capybara.register_driver :selenium_remote do |app|
+Capybara.register_driver :selenium_chrome_headless do |app|
   url = "http://selenium_chrome:4444/wd/hub"
   opts = { desired_capabilities: :chrome, browser: :remote, url: url}
   driver = Capybara::Selenium::Driver.new(app, opts)

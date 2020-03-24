@@ -16,6 +16,5 @@ RSpec.describe 'comments', type: :system do
       fill_in "comment_content", with: "お試しコメント"
       click_button "投稿"
     }.to change(user.comments, :count).by(1)
-
   end
 end
