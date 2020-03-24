@@ -21,4 +21,10 @@ RSpec.describe Shop, type: :model do
       expect(shop.errors[:name]).to include("が入力されていません。")
     end
   end
+  describe "shop has comments" do
+    it "can have many comments" do
+      shop = FactoryBot.create(:shop, :with_comments)
+      expect(shop.comments.length).to eq 5
+    end
+  end
 end
