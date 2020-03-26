@@ -4,11 +4,9 @@ RSpec.describe 'Shops', type: :system do
   it "creates a new shop", vcr: true do
     user = FactoryBot.create(:user, :admin_user)
 
+    sign_in user
+
     visit root_path
-    click_link "ログイン"
-    fill_in "メールアドレス", with: user.email
-    fill_in "パスワード", with: user.password
-    click_button "ログイン"
 
     expect {
       click_link "店舗登録"

@@ -6,11 +6,9 @@ RSpec.describe 'Favorite Comments', type: :system do
     shop = FactoryBot.create(:shop)
     comment = FactoryBot.create(:comment, shop: shop)
 
+    sign_in user
+
     visit root_path
-    click_link "ログイン"
-    fill_in "メールアドレス", with: user.email
-    fill_in "パスワード", with: user.password
-    click_button "ログイン"
 
     click_link shop.name
     click_button "good"
