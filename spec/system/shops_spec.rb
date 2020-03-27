@@ -1,14 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe 'Shops', type: :system do
-  it "creates a new shop", vcr: true do
-    user = FactoryBot.create(:user, :admin_user)
+  let(:admin_user) { FactoryBot.create(:user, :admin_user) }
 
+  it "creates a new shop", vcr: true do
+    sign_in admin_user
     visit root_path
-    click_link "ログイン"
-    fill_in "メールアドレス", with: user.email
-    fill_in "パスワード", with: user.password
-    click_button "ログイン"
 
     expect {
       click_link "店舗登録"
@@ -19,7 +16,6 @@ RSpec.describe 'Shops', type: :system do
       click_button "登録"
 
       expect(page).to have_content "Test Shop"
-    }.to change(user.shops, :count).by(1)
-
+    }.to change(admin_user.shops, :count).by(1)
   end
 end

@@ -50,7 +50,7 @@ RSpec.configure do |config|
   end
 
   config.include Devise::Test::ControllerHelpers, type: :controller
-  # config.include RequestSpecHelper, type: :request
+  config.include RequestSpecHelper, type: :request
   config.include Devise::Test::IntegrationHelpers, type: :system
 
   # config.include Paperclip::Shoulda::Matchers
