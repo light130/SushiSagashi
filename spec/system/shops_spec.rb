@@ -1,11 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe 'Shops', type: :system do
+  let(:admin_user) { FactoryBot.create(:user, :admin_user) }
+
   it "creates a new shop", vcr: true do
-    user = FactoryBot.create(:user, :admin_user)
-
-    sign_in user
-
+    sign_in admin_user
     visit root_path
 
     expect {
@@ -17,7 +16,6 @@ RSpec.describe 'Shops', type: :system do
       click_button "登録"
 
       expect(page).to have_content "Test Shop"
-    }.to change(user.shops, :count).by(1)
-
+    }.to change(admin_user.shops, :count).by(1)
   end
 end
