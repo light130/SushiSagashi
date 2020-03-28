@@ -6,7 +6,6 @@ RSpec.describe 'Favorite Shops', type: :system do
     shop = FactoryBot.create(:shop)
 
     sign_in user
-
     visit root_path
 
     click_link shop.name
