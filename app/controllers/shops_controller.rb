@@ -21,7 +21,7 @@ class ShopsController < ApplicationController
 
   def update
     @shop = current_user.shops.find(params[:id])
-    if @shop.update_attributes(shop_params)
+    if @shop.update(shop_params)
       flash[:notice] = '情報を更新しました。'
       redirect_to root_url
     else
@@ -41,7 +41,8 @@ class ShopsController < ApplicationController
   end
 
   def destroy
-    Shop.find(params[:id]).destroy
+    @shop = current_user.shops.find(params[:id])
+    @shop.destroy
     flash[:notice] = '削除しました。'
     redirect_to root_url
   end

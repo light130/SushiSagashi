@@ -7,7 +7,6 @@ RSpec.describe 'Favorite Comments', type: :system do
     comment = FactoryBot.create(:comment, shop: shop)
 
     sign_in user
-
     visit root_path
 
     click_link shop.name

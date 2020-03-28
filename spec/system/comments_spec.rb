@@ -6,7 +6,6 @@ RSpec.describe 'comments', type: :system do
     shop = FactoryBot.create(:shop)
 
     sign_in user
-
     visit root_path
 
     expect {
