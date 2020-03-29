@@ -4,8 +4,7 @@ RSpec.describe 'Shops', type: :system do
   let(:admin_user) { FactoryBot.create(:user, :admin_user) }
 
   it "creates a new shop", vcr: true do
-    sign_in admin_user
-    visit root_path
+    login_as_admin
 
     expect {
       click_link "店舗登録"
@@ -22,8 +21,7 @@ RSpec.describe 'Shops', type: :system do
   it "change the name", vcr: true do
     shop = FactoryBot.create(:shop, user: admin_user)
 
-    sign_in admin_user
-    visit root_path
+    login_as_admin
 
     click_link shop.name
     click_link "編集"
@@ -36,8 +34,7 @@ RSpec.describe 'Shops', type: :system do
   it "delete a shop", vcr: true do
     shop = FactoryBot.create(:shop, user: admin_user, name: "Shop1")
 
-    sign_in admin_user
-    visit root_path
+    login_as_admin
 
     expect(page).to have_content "Shop1"
 
@@ -51,5 +48,10 @@ RSpec.describe 'Shops', type: :system do
         expect(page).to have_content "削除しました。"
       end
     }.to change(admin_user.shops, :count).by(-1)
+  end
+
+  def login_as_admin
+    sign_in admin_user
+    visit root_path
   end
 end
