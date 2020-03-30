@@ -9,7 +9,10 @@
 
 import Rails from '@rails/ujs'
 Rails.start()
+import Turbolinks from 'turbolinks'
+Turbolinks.start()
 import 'bootstrap'
+import 'jquery'
 import '../stylesheets/application'
 
 // Uncomment to copy all static images under ../images to the output folder and reference

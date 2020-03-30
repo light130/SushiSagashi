@@ -1,6 +1,4 @@
-| お気に入り
-= form_with model: @shop, url: shop_favorites_path, method: :post do |f|
-  = hidden_field_tag :shop_id, @shop.id
-  = button_tag id: 'like', type: 'submit' do
-    i.far.fa-heart.fa-red
-  = @shop.liked_users.count
+= link_to shop_favorites_path(@shop, shop_id: @shop.id), method: :post, id: 'like' do
+  i class="far fa-heart fa-red"
+end
+= @shop.liked_users.count
