@@ -9,11 +9,11 @@ RSpec.describe 'Favorite Shops', type: :system do
     visit root_path
 
     click_link shop.name
-    click_button "like"
+    click_link "like"
 
     expect(page).to have_css "i.fas.fa-heart"
 
-    click_button "unlike"
+    click_link "unlike"
 
     expect(page).to have_css "i.far.fa-heart"
   end
