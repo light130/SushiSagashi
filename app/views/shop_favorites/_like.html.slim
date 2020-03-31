@@ -1,4 +1,5 @@
-= link_to shop_favorites_path(@shop, shop_id: @shop.id), method: :post, id: 'like' do
+| お気に入り
+= link_to shop_favorites_path(shop_id: @shop.id), method: :post, remote: true, id: 'like' do
   i class="far fa-heart fa-red"
 end
 = @shop.liked_users.count

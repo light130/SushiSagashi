@@ -1,4 +1,5 @@
-= link_to shop_favorite_path(@shop, shop_id: @shop.id), method: :delete, id: 'unlike' do
-  i class="fas fa-heart fa-red" id="unlike"
+| お気に入り
+= link_to shop_favorite_path(@shop, shop_id: @shop.id), method: :delete, remote: true, id: 'unlike' do
+  i class="fas fa-heart fa-red"
 end
 = @shop.liked_users.count
