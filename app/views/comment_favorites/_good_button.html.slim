@@ -1,0 +1,4 @@
+- if current_user.comment_favorite?(comment)
+  = render 'comment_favorites/normal', comment: comment
+- else
+  = render 'comment_favorites/good', comment: comment

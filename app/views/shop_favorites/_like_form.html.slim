@@ -1,0 +1,4 @@
+- if current_user.like?(@shop)
+  = render 'shop_favorites/unlike'
+- else
+  = render 'shop_favorites/like'

@@ -1,7 +1,8 @@
   h2 = @shop.name
   #container
     = image_tag @shop.picture.url if @shop.picture?
-    = render 'likes/like_form'
+    #like_form
+      = render 'shop_favorites/like_form'
     br
     h4 コメント
     = render @comments
@@ -49,5 +50,5 @@
           td = @shop.day_off
     br
     - if current_user.admin?
-         = link_to "編集", edit_shop_path
-         = link_to "削除", @shop, method: :delete, data: { confirm: "本当に削除しますか?" }
+      = link_to "編集", edit_shop_path
+      = link_to "削除", shop_path(@shop), method: :delete, data: { confirm: "本当に削除しますか?" }

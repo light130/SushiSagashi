@@ -1,6 +1,6 @@
 .circle-avatar
   = image_tag comment.user.avatar.url if comment.user.avatar?
-  = comment.content
+  = simple_format(h(comment.content), {}, sanitize: false, wrapper_tag: "div")
   - if comment.user == current_user
     = link_to "削除", shop_comment_path(shop_id: @shop, id: comment.id), method: :delete
-  = render 'goods/good_button', comment: comment
+  = render 'comment_favorites/good_button', comment: comment

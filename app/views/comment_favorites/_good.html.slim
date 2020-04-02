@@ -1,0 +1,4 @@
+= link_to shop_comment_comment_favorites_path(shop_id: comment.shop_id, comment_id: comment.id), method: :post, remote: true, id: 'good' do
+  i class="far fa-thumbs-up fa-blue"
+end
+= comment.comment_favorite_users.count

@@ -1,11 +1,9 @@
 class Comment < ApplicationRecord
-
   belongs_to :user
   belongs_to :shop
 
-  has_many :goods, dependent: :destroy
-  has_many :user_goods, through: :goods, source: :user
+  has_many :comment_favorites, dependent: :destroy
+  has_many :comment_favorite_users, through: :comment_favorites, source: :user
 
   validates :content, presence: true
-
 end

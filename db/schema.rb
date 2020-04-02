@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_11_143233) do
+ActiveRecord::Schema.define(version: 2019_11_01_145230) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "comment_favorites", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "comment_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["comment_id"], name: "index_comment_favorites_on_comment_id"
+    t.index ["user_id", "comment_id"], name: "index_comment_favorites_on_user_id_and_comment_id", unique: true
+    t.index ["user_id"], name: "index_comment_favorites_on_user_id"
+  end
 
   create_table "comments", force: :cascade do |t|
     t.text "content"
@@ -25,24 +35,14 @@ ActiveRecord::Schema.define(version: 2019_10_11_143233) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
-  create_table "goods", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "comment_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["comment_id"], name: "index_goods_on_comment_id"
-    t.index ["user_id", "comment_id"], name: "index_goods_on_user_id_and_comment_id", unique: true
-    t.index ["user_id"], name: "index_goods_on_user_id"
-  end
-
-  create_table "likes", force: :cascade do |t|
+  create_table "shop_favorites", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "shop_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["shop_id"], name: "index_likes_on_shop_id"
-    t.index ["user_id", "shop_id"], name: "index_likes_on_user_id_and_shop_id", unique: true
-    t.index ["user_id"], name: "index_likes_on_user_id"
+    t.index ["shop_id"], name: "index_shop_favorites_on_shop_id"
+    t.index ["user_id", "shop_id"], name: "index_shop_favorites_on_user_id_and_shop_id", unique: true
+    t.index ["user_id"], name: "index_shop_favorites_on_user_id"
   end
 
   create_table "shops", force: :cascade do |t|
@@ -83,11 +83,11 @@ ActiveRecord::Schema.define(version: 2019_10_11_143233) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "comment_favorites", "comments"
+  add_foreign_key "comment_favorites", "users"
   add_foreign_key "comments", "shops"
   add_foreign_key "comments", "users"
-  add_foreign_key "goods", "comments"
-  add_foreign_key "goods", "users"
-  add_foreign_key "likes", "shops"
-  add_foreign_key "likes", "users"
+  add_foreign_key "shop_favorites", "shops"
+  add_foreign_key "shop_favorites", "users"
   add_foreign_key "shops", "users"
 end

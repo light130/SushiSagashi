@@ -4,9 +4,12 @@ html
     title
       | 東京寿司さがし
     = render 'layouts/rails_default'
-    script src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyB5oUprtHwt2W7azt3G3vp-rX89UKCf6bU&callback=initMap"
+    script src="https://maps.googleapis.com/maps/api/js?v=weekly&key=AIzaSyB5oUprtHwt2W7azt3G3vp-rX89UKCf6bU"
     script src="//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"
-    script src='//cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js' type='text/javascript'
+    script src='//cdn.jsdelivr.net/gmaps4rails/2.1.2/gmaps4rails.js'
+    script src='//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore.js'
+    script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"
+    link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet"
   body
    = render 'layouts/header'
    .container.text-center

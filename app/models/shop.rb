@@ -1,11 +1,10 @@
 class Shop < ApplicationRecord
-
   belongs_to :user, -> { where admin: true }
 
   mount_uploader :picture, PictureUploader
 
-  has_many :likes, dependent: :destroy
-  has_many :liked_users, through: :likes, source: :user
+  has_many :shop_favorites, dependent: :destroy
+  has_many :liked_users, through: :shop_favorites, source: :user
   has_many :comments, dependent: :destroy
 
   validates :user_id, presence: true
@@ -22,5 +21,4 @@ class Shop < ApplicationRecord
         errors.add(:picture, "should be less than 5MB")
       end
     end
-
 end

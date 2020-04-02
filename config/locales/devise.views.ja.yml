@@ -35,6 +35,16 @@ ja:
               blank: "が入力されていません。"
             longitude:
               blank: "が入力されていません。"
+        shop_favorite:
+          attributes:
+            user:
+              required: "を確認できません。"
+            user_id:
+              taken: "はもうすでにLikeしています。"
+        comment:
+          attributes:
+            user:
+              required: "を確認できません。"
     attributes:
       user:
         current_password: "現在のパスワード"
