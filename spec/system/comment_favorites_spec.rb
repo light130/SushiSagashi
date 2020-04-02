@@ -10,11 +10,11 @@ RSpec.describe 'Favorite Comments', type: :system do
     visit root_path
 
     click_link shop.name
-    click_button "good"
+    click_link "good"
 
     expect(page).to have_css "i.fas.fa-thumbs-up"
 
-    click_button "normal"
+    click_link "normal"
 
     expect(page).to have_css "i.far.fa-thumbs-up"
   end
