@@ -30,8 +30,8 @@ jobs:
       - checkout
       # see: https://devcenter.heroku.com/articles/container-registry-and-runtime#using-a-ci-cd-platform
       - add_ssh_keys:
-        fingerprints:
-          - "62:90:5c:61:d6:47:c5:93:da:1f:d5:f7:69:7b:28:0e"
+         fingerprints:
+           - "62:90:5c:61:d6:47:c5:93:da:1f:d5:f7:69:7b:28:0e"
       - run:
           name: ssh connection
           command: ssh ${USER_NAME}@${HOST_NAME}
