@@ -29,22 +29,18 @@ jobs:
     steps:
       - checkout
       # see: https://devcenter.heroku.com/articles/container-registry-and-runtime#using-a-ci-cd-platform
+      - add_ssh_keys:
+         fingerprints:
+           - "62:90:5c:61:d6:47:c5:93:da:1f:d5:f7:69:7b:28:0e"
       - run:
-          name: setup heroku command
-          command: bash .circleci/setup_heroku.sh
+          name: ssh connection
+          command: ssh ${USER_NAME}@${HOST_NAME}
       - run:
-          name: heroku maintenance on
-          command: heroku maintenance:on --app ${HEROKU_APP_NAME}
+          name: Deploy Master to AWS
+          command: cd SushiSagashi && git pull origin master
       - run:
-          name: Deploy Master to Heroku
-          command: |
-            git push https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_APP_NAME.git master
-      - run:
-          name: heroku db migrate
-          command: heroku run rails db:migrate --app ${HEROKU_APP_NAME}
-      - run:
-          name: heroku maintenance off
-          command: heroku maintenance:off --app ${HEROKU_APP_NAME}
+          name: AWS db migrate
+          command: docker-compose -f docker-compose.production.yml run web rails db:migrate
 workflows:
   version: 2
   build_and_deploy:

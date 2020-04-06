@@ -16,7 +16,7 @@ https://ancient-hamlet-79871.herokuapp.com/
 ## 開発環境
 - 言語 : Ruby2.6.5
 - フレームワーク : Ruby on Rails6.0.0
-- DB : PostgreSQL
+- DB : PostgreSQL:12.2
 - テンプレートエンジン : Slim
 - インフラ : Docker/Heroku
 - バージョン管理 : Git

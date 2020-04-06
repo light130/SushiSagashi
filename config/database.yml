@@ -83,6 +83,6 @@ test:
 #
 production:
   <<: *default
-  database: sushi_sagashi_production
-  username: sushi_sagashi
-  password: <%= ENV['SUSHI_SAGASHI_DATABASE_PASSWORD'] %>
+  database: <%= Rails.application.credentials.dig(:rds, :host) %>
+  username: <%= Rails.application.credentials.dig(:rds, :username) %>
+  password: <%= Rails.application.credentials.dig(:rds, :password) %>
