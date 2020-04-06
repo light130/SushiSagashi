@@ -83,6 +83,6 @@ test:
 #
 production:
   <<: *default
-  database: <%= Rails.application.credentials[:rds][:host] %>
-  username: <%= Rails.application.credentials[:rds][:username] %>
-  password: <%= Rails.application.credentials[:rds][:password] %>
+  database: <%= Rails.application.credentials.dig(:rds, :host) %>
+  username: <%= Rails.application.credentials.dig(:rds, :username) %>
+  password: <%= Rails.application.credentials.dig(:rds, :password) %>
