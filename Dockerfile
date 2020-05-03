@@ -1,20 +1,42 @@
-FROM ruby:2.6.5
-RUN apt-get update -qq && apt-get install -y nodejs postgresql-client
-RUN apt-get update && apt-get install -y curl apt-transport-https wget && \
-    curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
-    echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list && \
-    apt-get update && apt-get install -y yarn
-RUN mkdir /sushi_sagashi
+FROM ruby:2.6.5-alpine as builder
+RUN apk update && \
+    apk upgrade && \
+    apk add --no-cache \
+        gcc \
+        g++ \
+        libc-dev \
+        libxml2-dev \
+        linux-headers \
+        postgresql \
+        postgresql-dev \
+        make && \
+    apk add --virtual build-packages --no-cache \
+        build-base \
+        curl-dev
 WORKDIR /sushi_sagashi
-COPY Gemfile /sushi_sagashi/Gemfile
-COPY Gemfile.lock /sushi_sagashi/Gemfile.lock
+COPY Gemfile Gemfile
+COPY Gemfile.lock Gemfile.lock
 RUN bundle install
+RUN apk del build-packages
+
+
+FROM ruby:2.6.5-alpine
+ENV LANG=C.UTF-8
+ENV TZ=Asia/Tokyo
+RUN apk --update add \
+    nodejs \
+    postgresql \
+    postgresql-dev \
+    tzdata \
+    yarn
+WORKDIR /sushi_sagashi
+COPY --from=builder /usr/local/bundle /usr/local/bundle
 COPY . /sushi_sagashi
 
 # Add a script to be executed every time the container starts.
 COPY entrypoint.sh /usr/bin/
 RUN chmod +x /usr/bin/entrypoint.sh
-ENTRYPOINT ["entrypoint.sh"]
+ENTRYPOINT ["sh", "entrypoint.sh"]
 EXPOSE 3000
 
 # Start the main process.
