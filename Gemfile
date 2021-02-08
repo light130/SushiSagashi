@@ -5,7 +5,7 @@ ruby '2.6.5'
 
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'bootstrap'
-gem 'carrierwave', '~> 2.0'
+gem 'carrierwave', '~> 2.1'
 gem 'devise'
 gem 'devise-i18n'
 gem 'devise-i18n-views'
